@@ -1,0 +1,32 @@
+<%-include ('partials/head.ejs');%>
+
+    <body class="bg-gray">
+        <%-include('./partials/navbar.ejs');%>
+
+            <div class="container mt-5 ">
+                <hr>
+                <h1>Perguntas</h1>
+                <hr>
+                <a href="/ask" class="btn btn-success">Perguntar</a>
+                <hr>
+                <% question.forEach(qst => { %>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3>
+                                <%= qst.title%>
+                            </h3>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="/pergunta/<%= qst.id%>"><button class="btn btn-success">Responder</button></a>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <% }) %>
+            </div>
+    </body>
+    <%-include ('./partials/footer.ejs');%>
