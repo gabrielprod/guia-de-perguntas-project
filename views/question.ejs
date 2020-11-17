@@ -1,0 +1,37 @@
+<%-include ('partials/head.ejs');%>
+
+    <body>
+        <%-include('./partials/navbar.ejs');%>
+
+            <div class="container">
+                <hr>
+                <h1>
+                    <%= perg.title%>
+                </h1>
+                <p>
+                    <%= perg.descript%>
+                </p>
+                <hr>
+
+                <form method="POST" action="/responder">
+                    <h1>Responda</h1>
+                    <label>Resposta : </label>
+                    <textarea placeholder="Digite sua resposta ..." name="corpo" class="form-control"></textarea>
+                    <input type="hidden" name="pergunta" value="<%= perg.id%>">
+                    <button type="submit" class="btn btn-success mt-4">Responder</button>
+                </form>
+                <hr>
+                <h3>Respostas</h3>
+                <hr>
+                <% resp.forEach(r => {%>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p>
+                                <%= r.corpo %><br></p>
+                        </div>
+                    </div>
+                    <% })%>
+
+            </div>
+    </body>
+    <%-include ('./partials/footer.ejs');%>
